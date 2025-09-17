@@ -122,10 +122,6 @@ function setupLeetcodeListeners() {
         attributes: true,
         attributeFilter: ['class']
     })
-    if (window.location.pathname.includes('/problems/')) {
-        console.log('LeetCode problem page detected')
-        show('leetcodeStarted')
-    }
 }
 
 if (window.location.hostname.includes('leetcode.com')) {
