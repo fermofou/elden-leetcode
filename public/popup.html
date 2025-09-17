@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Elden Leetcode</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                width: 400px;
+                height: 300px;
+                background: linear-gradient(
+                    to bottom,
+                    #0f0f0f,
+                    #0f0f0f,
+                    rgba(0, 0, 0, 0.9)
+                );
+                color: #f5f5dc;
+                font-family: ui-serif, Georgia, Cambria, 'Times New Roman',
+                    Times, serif;
+                overflow: hidden;
+                position: relative;
+            }
+
+            /* Background atmospheric effects */
+            .bg-effects {
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                overflow: hidden;
+            }
+
+            .bg-glow-1 {
+                position: absolute;
+                top: 25%;
+                left: 25%;
+                width: 150px;
+                height: 150px;
+                background: rgba(217, 119, 6, 0.05);
+                border-radius: 50%;
+                filter: blur(40px);
+            }
+
+            .bg-glow-2 {
+                position: absolute;
+                bottom: 25%;
+                right: 25%;
+                width: 100px;
+                height: 100px;
+                background: rgba(217, 119, 6, 0.03);
+                border-radius: 50%;
+                filter: blur(30px);
+            }
+
+            .container {
+                position: relative;
+                z-index: 10;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 24px;
+                font-weight: bold;
+                letter-spacing: 2px;
+                text-align: center;
+                margin-bottom: 8px;
+                text-shadow: 0 0 10px rgba(217, 119, 6, 0.5);
+            }
+
+            .title-divider {
+                width: 80px;
+                height: 1px;
+                background: linear-gradient(
+                    to right,
+                    transparent,
+                    #d97706,
+                    transparent
+                );
+                margin: 0 auto 30px;
+            }
+
+            .menu-options {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .menu-option {
+                position: relative;
+                padding: 12px 24px;
+                font-size: 18px;
+                font-weight: 500;
+                letter-spacing: 1px;
+                background: rgba(26, 26, 26, 0.2);
+                border: 1px solid rgba(45, 45, 45, 0.3);
+                color: #f5f5dc;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(4px);
+                text-align: center;
+            }
+
+            .menu-option:hover {
+                background: #d97706;
+                color: #0f0f0f;
+                border-color: #d97706;
+                transform: scale(1.05);
+                box-shadow: 0 4px 20px rgba(217, 119, 6, 0.25);
+            }
+
+            .menu-option::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to right,
+                    rgba(217, 119, 6, 0.2),
+                    rgba(217, 119, 6, 0.1),
+                    rgba(217, 119, 6, 0.2)
+                );
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .menu-option:hover::before {
+                opacity: 1;
+            }
+
+            .menu-option .text {
+                position: relative;
+                z-index: 10;
+            }
+
+            .menu-option .dot-left,
+            .menu-option .dot-right {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 6px;
+                height: 6px;
+                background: rgba(217, 119, 6, 0.5);
+                border-radius: 50%;
+                transition: all 0.3s ease;
+            }
+
+            .menu-option .dot-left {
+                left: 12px;
+            }
+
+            .menu-option .dot-right {
+                right: 12px;
+            }
+
+            .menu-option:hover .dot-left,
+            .menu-option:hover .dot-right {
+                background: #0f0f0f;
+                transform: translateY(-50%) scale(1.2);
+            }
+
+            .bottom-divider {
+                width: 60px;
+                height: 1px;
+                background: linear-gradient(
+                    to right,
+                    transparent,
+                    rgba(217, 119, 6, 0.5),
+                    transparent
+                );
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bg-effects">
+            <div class="bg-glow-1"></div>
+            <div class="bg-glow-2"></div>
+        </div>
+
+        <div class="container">
+            <h1 class="title">ELDEN LEETCODE</h1>
+            <div class="title-divider"></div>
+
+            <div class="menu-options">
+                <button class="menu-option" id="yes-option">
+                    <div class="dot-left"></div>
+                    <span class="text">YES</span>
+                    <div class="dot-right"></div>
+                </button>
+                <button class="menu-option" id="no-option">
+                    <div class="dot-left"></div>
+                    <span class="text">NO</span>
+                    <div class="dot-right"></div>
+                </button>
+            </div>
+
+            <div class="bottom-divider"></div>
+        </div>
+        <script src="popup.js"></script>
+    </body>
+</html>
